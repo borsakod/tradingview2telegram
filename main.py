@@ -24,4 +24,6 @@ def webhook():
         return {'success': False, 'message': str(e)}, 400
 
 if __name__ == '__main__':
-    app.run(port=80, debug=True, host='0.0.0.0')
+    from waitress import serve
+    serve(app, host='0.0.0.0', port=80)
+    # app.run(port=80, debug=True, host='0.0.0.0')
