@@ -24,6 +24,8 @@ def webhook():
         return {'success': False, 'message': str(e)}, 400
 
 if __name__ == '__main__':
+    # If you want to use port 80, direct requests to 8080 with the command below.
+    # sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
     from waitress import serve
-    serve(app, host='0.0.0.0', port=80)
+    serve(app, host='0.0.0.0', port=8080)
     # app.run(port=80, debug=True, host='0.0.0.0')
